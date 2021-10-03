@@ -13,11 +13,11 @@ function Post() {
   let history = useHistory();
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
+    axios.get(`https://lavender-training.herokuapp.com/posts/byId/${id}`).then((response) => {
       setPostObject(response.data);
     });
 
-    axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
+    axios.get(`https://lavender-training.herokuapp.com/comments/${id}`).then((response) => {
       setComments(response.data);
     });
   }, []);
@@ -25,7 +25,7 @@ function Post() {
   const addComment = () => {
     axios
       .post(
-        "http://localhost:3001/comments",
+        "https://lavender-training.herokuapp.com/comments",
         {
           commentBody: newComment,
           PostId: id,
@@ -52,7 +52,7 @@ function Post() {
 
   const deleteComment = (id) => {
     axios
-      .delete(`http://localhost:3001/comments/${id}`, {
+      .delete(`https://lavender-training.herokuapp.com/comments/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {
@@ -67,7 +67,7 @@ function Post() {
 
   const deletePost = (id) => {
     axios
-      .delete(`http://localhost:3001/posts/${id}`, {
+      .delete(`hhttps://lavender-training.herokuapp.com/posts/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {
@@ -79,7 +79,7 @@ function Post() {
     if (option === "title"){
       //edit title
       let newTitle = prompt("Enter new title:");
-      axios.put("http://localhost:3001/posts/title",
+      axios.put("https://lavender-training.herokuapp.com/posts/title",
        {newTitle: newTitle, id:id}, //parameters of function
        {headers: { accessToken: localStorage.getItem("accessToken") }});
       
@@ -88,7 +88,7 @@ function Post() {
     else{
       //edit body
       let newPostText = prompt("Enter new post text:");
-      axios.put("http://localhost:3001/posts/postText", //have to match routing
+      axios.put("https://lavender-training.herokuapp.com/posts/postText", //have to match routing
        {newText: newPostText, id:id}, //parameters of function
        {headers: { accessToken: localStorage.getItem("accessToken") }});
        setPostObject({...postObject, postText:newPostText});

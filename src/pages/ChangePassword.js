@@ -8,7 +8,7 @@ function ChangePassword() {
     const changePassword =() => {
         //users route = /auth
         //check rout to see what to call the parameters
-        axios.put("http://localhost:3001/auth/changepassword", {
+        axios.put("https://lavender-training.herokuapp.com/auth/changepassword", {
             oldPassword: oldPassword,
             newPassword: newPassword},
             {headers: {

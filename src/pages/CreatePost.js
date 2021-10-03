@@ -20,7 +20,7 @@ function CreatePost() {
     }, []); //without brackets -> errors and run infintely
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001/posts", data, {
+        axios.post("https://lavender-training.herokuapp.com/posts", data, {
             headers: {accessToken: localStorage.getItem("accessToken")},
         }).then((response) => {
           //setListOfPosts(response.data);

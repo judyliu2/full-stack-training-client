@@ -15,7 +15,7 @@ function Home() {
       if (!localStorage.getItem("accessToken")){
         history.push("/login");
       }else{
-        axios.get("http://localhost:3001/posts",
+        axios.get("https://lavender-training.herokuapp.com/posts",
         {headers: {accessToken: localStorage.getItem("accessToken")}}
         ).then((response) => {
           setListOfPosts(response.data.listOfPosts);
@@ -28,7 +28,7 @@ function Home() {
 
     const likePost = (postId) => {
       axios.post(
-        "http://localhost:3001/likes",
+        "https://lavender-training.herokuapp.com/likes",
         {PostId: postId}, 
         {headers: {accessToken: localStorage.getItem("accessToken")}}
         ).then((response)=> {
